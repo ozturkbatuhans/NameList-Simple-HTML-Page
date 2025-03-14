@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Namenlijst</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #namelist {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Namenlijst</h1>
+
+    <!-- İsim girmek için input -->
+    <input type="text" id="nameInput" placeholder="Voer een naam in">
+
+    <!-- Düğme -->
+    <button onclick="addName()">Voeg naam toe</button>
+
+    <!-- İsimlerin ekleneceği liste -->
+    <ul id="namelist"></ul>
+
+    <script>
+        // Fonksiyon: Butona basılınca çalışacak
+        function addName() {
+            // Input alanındaki değeri al
+            const name = document.getElementById('nameInput').value;
+            
+            // Eğer input boş değilse listeye ekle
+            if (name) {
+                // Yeni bir li (list item) oluştur
+                const li = document.createElement('li');
+                li.textContent = name;
+
+                // li'yi ul'ye ekle
+                document.getElementById('namelist').appendChild(li);
+
+                // Input alanını temizle
+                document.getElementById('nameInput').value = '';
+            } else {
+                alert("Voer een naam in a.u.b."); // Eğer input boşsa uyarı ver
+            }
+        }
+    </script>
+
+</body>
+</html>
